@@ -3,6 +3,8 @@
   "displayName": "MakeBox for Etsy",
   "version": "0.1.0",
   "description": "Create and optimize Etsy listings, research keywords, manage shop details and orders with MakeBox MCP and guided workflows.",
+  "icon": "assets/makebox-logo.png",
+  "privacyPolicyUrl": "https://www.makebox.ai/privacy",
   "author": {
     "name": "MakeBox AI",
     "url": "https://www.makebox.ai"
