@@ -1,0 +1,20 @@
+# MakeBox MCP workflow map
+
+Connect to the single remote server in `.mcp.json`. Its OAuth session scopes tools to the seller's selected MakeBox workspace and Etsy shop. Call named MCP tools; do not construct raw Etsy API requests or reuse another seller's IDs. Tool availability and daily allowances depend on the account's current plan.
+
+| Task | Read or prepare | Action | Confirmation and readback |
+| --- | --- | --- | --- |
+| Identify account | `list_shops`, `get_account_status` | Connect Etsy in MakeBox when absent | Confirm connected shop before a write |
+| Create listing | `search_categories`, `browse_categories`, `list_shipping_profiles`, `list_return_policies`, `list_sections`, `list_production_partners` | `create_listing` creates an Etsy draft by default | Review exact card first; then `get_listing` for Etsy ID and draft state |
+| Attach listing media | `list_photos`, `list_digital_files`, `list_listing_videos` | `get_upload_link`, `add_photos_to_listing`, `add_digital_files_to_listing`, `manage_listing_videos` | Check each accepted file/photo; no AI image or video generation is provided here |
+| Set options | `get_listing_variations`, `get_listing_offerings`, `get_listing_personalization` | `set_listing_variations`, `set_listing_offerings`, `push_listing_variations`, `set_listing_personalization` | Setters can replace the complete saved set; show the full table, approve, then require Etsy verification |
+| Set shop structure | `list_sections`, `list_shipping_profiles`, `list_return_policies`, `list_shop_languages` | `manage_shop_sections`, `create_shipping_profile`, `create_return_policy`, `set_listing_return_policy`, `set_listing_section` | Policies and postage use seller-approved facts; a policy assignment to a draft does not publish it |
+| Improve one listing | `get_listing`, `list_photos`, `search_keywords`, `check_keywords` | `optimize_listing` produces an unsaved suggestion; `update_listing` can stage; `push_listing_to_etsy` sends approved edits | AI generation spends an allowance; stage with `publish: false`, then approve and read back any Etsy push |
+| Improve many listings | `quote_bulk_seo` returns list, cost and balance; `get_bulk_seo_job` tracks progress | `start_bulk_seo` charges and starts a job; `push_bulk_seo_job` sends a completed job to Etsy | Approve cost before starting; review every proposed change before pushing the whole job |
+| Publish a draft | `get_listing`, `list_photos`, `list_digital_files`, `get_listing_variations` | `set_listing_state` with `state: "active"` | Require explicit approval of the ready listing; verify live state afterward |
+| Research market | `search_keywords`, `check_keywords`, `search_top_listings`, `find_shops_in_my_niche`, `analyze_competitor_listing`, `competitor_tags` | None unless the seller requests monitoring or listing edits | Label keyword estimates and public Etsy observations separately; never infer per-listing sales from lifetime shop sales |
+| Orders | `list_orders`, `get_order`, `get_shop_stats` | `fulfil_order` can add tracking or mark shipped | Confirm receipt and tracking before the buyer-facing write; `get_order` again afterward |
+
+`search_keywords` returns up to 100 terms per call and sorts by MakeBox's opportunity score unless another sort is requested. `check_keywords` checks up to 40 exact phrases. Missing statistics do not mean zero search demand. Both are subject to shared daily research limits. `optimize_listing` charges one listing action for title, description and tags together, or one third for a single field. `quote_bulk_seo` is read-only; `start_bulk_seo` charges upfront and does not publish. The connection and shop plan may impose additional limits, which `get_account_status` and tool results should report.
+
+If a write returns an error or an ambiguous result, do not repeat it immediately. Read the target's live state first. Report whether work is an AI suggestion, staged in MakeBox, an Etsy draft, an Etsy-confirmed update, or published to buyers. A supportable answer names the source, target ID, and unresolved step.
