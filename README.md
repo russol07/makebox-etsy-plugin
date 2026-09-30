@@ -1,5 +1,7 @@
 # MakeBox for Etsy
 
+![MakeBox AI icon](assets/makebox-logo.png)
+
 MakeBox for Etsy connects Claude to the seller's own MakeBox workspace and Etsy shop. Its remote MCP connector provides listing, shop, research, and order tools. One shop-manager agent coordinates five focused workflow skills: creating a complete listing, improving existing listings, working with orders, researching keywords and niches, and managing shop structures. A sixth routing skill gives Claude chat the same shop-manager role, because chat does not run plugin sub-agents. The skills do not run code or make network requests by themselves; they guide Claude to the connected MakeBox tools when the seller asks for a task.
 
 ## Connect and use
