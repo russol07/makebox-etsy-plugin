@@ -1,16 +1,19 @@
 ---
 name: manage-etsy-shop
-description: Manage the connected Etsy shop through MakeBox when the seller asks about sections, shipping or return policies, shop statistics, languages, monitored shops, or store setup.
+description: Manage seller-authorized Etsy shop settings through MakeBox, including sections, shipping and return profiles, processing, holiday preferences, shop details, account permissions and monitoring.
 ---
 
 # Manage an Etsy shop
 
-Use MakeBox MCP for the seller's own connected shop. Read the current state before suggesting an operation.
+Read `../../references/direct-etsy-api-guide.md`. Use current `etsy_*` schemas for direct shop operations, and read the existing configuration before changing it.
 
-1. Confirm the connected workspace with `list_shops` and plan access with `get_account_status`. Use `get_shop_stats` for a current overview and label any field the tool says is MakeBox-synced rather than Etsy-live.
-2. For structure, read `list_sections` before `manage_shop_sections` or `set_listing_section`. Creating, renaming, and deleting sections change the Etsy shop; show the exact effect and get seller approval. Removing a section does not delete its listings, but can leave them unsectioned.
-3. For physical products, read `list_shipping_profiles` live and confirm the correct one. A profile ID existing in the shop does not guarantee Etsy will accept it for a particular listing. Ask for real origin, postage, processing, weight, and dimensions where required; never invent them. Use `create_shipping_profile` or `create_processing_profile` only from seller-approved facts.
-4. Read `list_return_policies` before choosing or creating one. Returns and exchanges are promises to buyers. Use `create_return_policy` only after the seller confirms those terms. `set_listing_return_policy` can assign an existing policy to an Etsy draft after approval; it checks the policy and Etsy readback and does not publish the draft.
-5. For research and monitoring, use `list_monitored_shops`, `monitor_shop`, and `stop_monitoring_shop` within plan limits. Explain whether a result is a fresh Etsy read or a saved MakeBox snapshot.
+1. Identify the selected workspace with `list_shops` and plan access with `get_account_status`. Current Etsy shop details are available through `etsy_get_shop`; `etsy_get_me` identifies the authorized Etsy account.
+2. Use the corresponding section read/create/update/delete operations for shop structure. Explain what removing a section does to its listings and use the seller's exact approval.
+3. Read `etsy_get_shop_shipping_profiles` and `etsy_get_shop_shipping_profile` to show destinations and charges. To assign a profile to an existing listing, use `etsy_update_listing` with only the approved `shipping_profile_id`, then read it back. The focused `set_listing_shipping_profile` helper is also available. A manual Etsy edit is not required merely because a convenience tool lacks the field.
+4. Shipping profile, destination and upgrade operations can change terms for multiple listings. Identify affected listings, show rates/origin/timing and obtain authorization for that scope. Do not edit or delete a shared profile merely to fix one listing; first move dependencies when appropriate.
+5. Read return policies and confirm returns, exchanges and deadline before creating or changing one. Direct listing policy assignment uses `etsy_update_listing`; policy consolidation can move all dependent listings and delete the source policy, so explain the complete effect.
+6. Use the live processing/readiness and holiday-preference tools for confirmed dispatch schedules. Use `etsy_update_shop` only for the seller-approved text fields. Do not guess promises to buyers.
+7. Personal email or saved-address methods are for the connected Etsy user's account and may require optional `email_r` or `address_r` consent. Read the returned blocker and reconnect link; never request credentials or silently expand access.
+8. Existing MakeBox monitoring tools remain available within plan limits. Distinguish their stored observations from live Etsy data.
 
-Never switch shop connections, alter buyer-facing policies, or publish a listing merely because the user asked for an overview.
+After an accepted write, read the resource again and report the actual state. An overview request authorizes reading, not a shop change.

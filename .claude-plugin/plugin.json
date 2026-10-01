@@ -1,8 +1,8 @@
 {
   "name": "makebox-etsy",
   "displayName": "MakeBox for Etsy",
-  "version": "0.1.1",
-  "description": "Create and optimize Etsy listings, research keywords, manage shop details and orders with MakeBox MCP and guided workflows.",
+  "version": "0.2.0",
+  "description": "Connect Claude to Etsy through MakeBox: direct Etsy API tools, seller-approved listing and shop changes, orders, reports, and guided research.",
   "icon": "assets/makebox-logo.png",
   "privacyPolicyUrl": "https://www.makebox.ai/privacy",
   "author": {

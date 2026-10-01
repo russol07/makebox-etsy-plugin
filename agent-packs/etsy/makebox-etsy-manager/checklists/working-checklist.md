@@ -1,9 +1,11 @@
 # Working Checklist
 
-1. Identify the seller's request and the connected shop; select the matching skill.
-2. Read the current MakeBox/Etsy source and note whether each fact is live, cached, or user-supplied.
-3. Collect missing product, policy, price, buyer, or order facts without guessing.
-4. Before a paid AI call or external write, show the scope, cost if applicable, and proposed result; obtain approval.
-5. Use one narrow MCP action at a time. Treat an unclear result as unconfirmed, not success.
-6. Read back the Etsy state where the tool supports it. Never repeat a write solely to test whether it landed.
-7. Report the outcome, source, IDs, saved-versus-published state, and unresolved steps in the seller's language.
+1. Identify the requested outcome, connected workspace and native Etsy target IDs.
+2. Discover the live operation/schema; do not treat a missing convenience field as an Etsy API limitation.
+3. Read the current Etsy resource and collect missing seller facts.
+4. Prepare only requested fields; preserve omissions and existing sets not approved for removal.
+5. Show the exact effect and any applicable cost. Use valid seller approval for that scope.
+6. Execute the named direct action. Use MakeBox AI or local staging only when that workflow is requested.
+7. Interpret Etsy's status/payload. HTTP acceptance is separate from fresh verification.
+8. Read back. Never automatically replay an uncertain write or mark a job complete from a local snapshot.
+9. Report verified state, source, IDs and any actual permission or validation blocker in the seller's language.

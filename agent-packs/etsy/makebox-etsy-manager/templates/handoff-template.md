@@ -1,20 +1,23 @@
-# Handoff Template
+# Handoff
 
 ## Seller and target
 
-- Connected shop:
-- Listing or receipt ID:
-- Requested outcome:
+- Connected MakeBox workspace:
+- Native Etsy shop/listing/receipt IDs:
+- Requested outcome and approved scope:
 
-## Confirmed work
+## Work and verification
 
-- Sources checked and when:
-- Tool calls and verified results:
-- MakeBox-only changes:
-- Etsy-confirmed changes:
+- Source and read time:
+- Direct operation or optional MakeBox workflow:
+- Values approved:
+- Etsy HTTP acceptance:
+- Fresh readback and verified state:
+- MakeBox-only staging, if any:
 
-## Remaining decision or blocker
+## Unresolved work
 
-- Exact unresolved item:
-- Approval needed, if any:
-- Safe next step without repeating an ambiguous write:
+- Exact error or uncertain result:
+- Readback needed before any retry:
+- Additional seller decision or optional OAuth permission:
+- Next step that does not repeat an uncertain write:

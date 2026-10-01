@@ -1,18 +1,18 @@
 ---
 name: create-etsy-listing
-description: Create a new Etsy listing through MakeBox when the seller asks to turn a real product or digital item into a complete draft, attach approved media, or prepare it for publication.
+description: Create an Etsy listing through MakeBox from the seller's product facts or finished copy, prepare a complete draft, attach approved media, configure options and publish only with seller authorization.
 ---
 
 # Create an Etsy listing
 
-Use the MakeBox MCP connector for this workflow. A skill alone does not create or publish anything.
-For the complete field, variation, personalization, media, and policy sequence, read `../../references/listing-creation-guide.md` when those parts are relevant.
+Read `../../references/listing-creation-guide.md` for the complete sequence and `../../references/direct-etsy-api-guide.md` for direct transport. A skill alone creates or publishes nothing.
 
-1. Identify the seller's connected shop with `list_shops` and account access with `get_account_status`. If the shop is not connected or the plan blocks listing management, explain the exact blocker before drafting an Etsy action.
-2. Collect confirmed facts: physical or digital type; title, description, price, quantity, Etsy category, maker, production date, materials, personalization, variations, and any size or shipping claims. Do not invent product specifications or seller policies. Use `search_categories` or `browse_categories` for a category. For physical items, read `list_shipping_profiles`; read `list_return_policies` for the seller-approved policy. Ask when a required fact is missing.
-3. Prepare 13 distinct, relevant, multi-word Etsy tags of at most 20 characters each. `search_keywords` and `check_keywords` may provide evidence within the seller's plan limits; search volume is not a guarantee of Etsy rank or sales.
-4. Show the complete proposed card and whether it will be a **draft** or a live listing. Explain that creating an Etsy listing may incur Etsy's normal fees. Only after the seller approves the exact card, call `create_listing` once. Leave `publish` false unless the seller explicitly approved immediate publication and the listing is ready for buyers.
-5. Attach only seller-approved photos with `add_photos_to_listing`, digital files with `add_digital_files_to_listing`, or existing video files with `manage_listing_videos` when requested. Configure approved variations and their full price/stock table with the dedicated variation tools, and any agreed personalization questions with `set_listing_personalization`; verify each result. The connector does not generate images or videos. Use `get_listing` to verify the returned Etsy ID and state; report any incomplete media transfer explicitly.
-6. If the seller later wants the draft live, show its current content and ask for approval before `set_listing_state` with `state: "active"` and `confirm: true`. A draft, an unsaved suggestion, and a published listing are different outcomes.
+1. Identify the connected shop with `list_shops` and account access with `get_account_status`. Read the current schema of `etsy_create_draft_listing`.
+2. Collect seller-confirmed product type, price, quantity, category, maker/provenance, materials, options and any shipping claims. Prepare requested copy in the chat; preserve finished copy the seller supplied. Use Etsy's actual enum values from the live schema.
+3. Use current taxonomy, shipping, returns, section and production-partner reads as relevant. Confirm the selected profiles and real packed weight/dimensions where required. Do not infer that an existing profile will be valid for every product.
+4. Research may guide relevant title/tag suggestions but does not prove ranking or product facts. Follow native Etsy limits for a direct request. Do not force extra multi-word tags into a seller-approved payload solely to satisfy a separate MakeBox generation policy.
+5. Show the complete proposed draft and approved media/option plan. After approval, call `etsy_create_draft_listing` with its `body` and `confirm: true`. This creates a draft; publication is a separate explicit action.
+6. Read the Etsy result, attach approved media, configure the complete inventory and personalization as requested, and verify each step. No internal MakeBox AI call is needed to send chat-authored copy.
+7. Only when the seller authorizes publication of the ready listing, use `etsy_update_listing` with the approved `state: active` change. Read the listing back and report its actual state; Etsy's normal fees may apply.
 
-If Etsy rejects a write or the result is uncertain, report the returned reason. Read the listing before deciding on any retry; never create a second listing merely to see whether the first one worked.
+If a write fails or is uncertain, read before deciding on a retry. Never create another listing just to test whether the first creation succeeded. Existing MakeBox creation/staging workflows remain available when the seller specifically wants them.

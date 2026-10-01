@@ -1,26 +1,31 @@
 # Listing creation: field and tool guide
 
-This guide is for a MakeBox-connected Etsy shop. It does not authorize an Etsy write on its own. Use the seller's exact product facts and approvals.
+Use the seller's facts and approval. Read [Direct Etsy API through MakeBox](direct-etsy-api-guide.md) for the transport and result contract. This guide does not authorize a write by itself.
 
-## Before the first Etsy draft
+## Prepare the draft
 
-1. `list_shops` confirms which connected shop will receive the listing; `get_account_status` shows the plan and limits.
-2. Choose `physical` for a shipped product or `digital` for a download. Ask when ambiguous. Confirm the title, full buyer-facing description, real price in the shop's currency, quantity, `who_made`, `when_made`, and whether the product is a supply. Never infer maker, material, dates, measurements, or shipping promises from a photo.
-3. Use `search_categories` or `browse_categories` for the `taxonomy_id`. Gather 13 unique, relevant multi-word tags of at most 20 characters each. Research can help prioritize phrases, but cannot prove a ranking.
-4. For a physical item, read `list_shipping_profiles` and choose the seller-approved profile. When that profile uses calculated postage, confirm the packed weight, all three dimensions, and their units. A profile appearing in the shop's list is not proof Etsy accepts it for this product.
-5. Read `list_return_policies`; show the exact returns and exchanges settings. A no-returns policy for custom items is the seller's decision, not a default. If no suitable policy exists, `create_return_policy` creates one only after approval. Read `list_sections` and `list_production_partners` when those fields matter.
-6. Show the complete proposed listing to the seller, including price, type, category, shipping and return policies, variations, personalization, tags, and media plan. `create_listing` writes to Etsy and may incur Etsy fees. Obtain approval for the exact card. Keep `publish: false` for an Etsy draft unless the seller separately approved going live with all required assets.
+1. Identify the workspace with `list_shops` and access with `get_account_status`. Workspace UUIDs are not Etsy shop IDs; `etsy_get_me` returns the authorized Etsy identity. Private direct operations bind the shop inside the server.
+2. Read the current `etsy_create_draft_listing` schema. Confirm real price/currency, quantity, title, description, category and maker/provenance. Select Etsy's actual product-type enum: a download value in a direct tool must not be replaced with a convenience tool's `digital` label.
+3. Prepare requested copy in the chat, or preserve seller-supplied finished copy. Use relevant research where requested. Do not add internal AI generation just to transmit this content. Follow Etsy's native tag limits; a separate generation rule is not grounds to reject a valid direct request.
+4. Use the taxonomy reads for `taxonomy_id`. For physical goods, read shipping profiles and the exact selected profile's destinations/rates. Confirm origin, packed weight/dimensions and units when needed. Read return policies and show returns/exchanges/deadline before choosing one. Confirm sections and production partners as relevant.
+5. Show the complete intended draft and media/option plan. After the seller approves the exact card, send `etsy_create_draft_listing` once with the approved `body` and `confirm: true`. It creates an Etsy draft; do not treat it as live publication.
 
-## After Etsy returns a draft ID
+## Complete and verify
 
-- `get_listing` confirms the Etsy listing ID and draft state. Do not recreate the listing if a response is uncertain; read the shop first.
-- Attach approved product photos with `add_photos_to_listing`; check them with `list_photos`, then use `set_main_photo`, `reorder_photos`, or `set_photo_alt_text` only as requested. `get_upload_link` can help with a file that needs a secure upload path. The MCP server does not generate a new image.
-- For a digital download, attach the approved files using `add_digital_files_to_listing`, then check `list_digital_files`. Digital non-made-to-order listings need their files before activation.
-- For existing video files, use `manage_listing_videos` and verify with `list_listing_videos`. This uploads or manages media; it is not AI video generation.
-- For size, color, or other buying options, read `get_listing_variations` and `get_listing_offerings`. Stage the **complete** axes and price/quantity table with `set_listing_variations` and `set_listing_offerings` using `publish: false`; these setters replace their saved sets. After the seller approves the full table, call `push_listing_variations` with `confirm: true` and require its Etsy verification. Do not equate a local save with a verified Etsy inventory update.
-- For names, dates, text, or file-upload questions, read `get_listing_personalization` before `set_listing_personalization`. The setter replaces the complete question set; preserve every approved question and option. Confirm any additional price with the seller.
-- If the return policy needs correction on an existing draft, `set_listing_return_policy` can apply a shop policy after seller approval and Etsy readback. It does not publish. Use `set_listing_section` and `set_listing_translation` when the seller requests those structures.
+- Read the returned listing with `etsy_get_listing`. No MakeBox import is needed for direct reads/writes. If creation is uncertain, inspect live listings before trying again.
+- For a local photo, file or video, obtain an authorized upload through `get_upload_link` or the Asset Library. Use `asset_id` in the direct multipart field: `image`, `file` or `video`, according to the specific live schema. Existing Etsy media IDs may support reassociation.
+- Use `etsy_upload_listing_image` and `etsy_get_listing_images` for photos; `etsy_upload_listing_file` and `etsy_get_all_listing_files` for digital downloads; `etsy_upload_listing_video` and `etsy_get_listing_videos` for existing videos. These upload/manage media and do not generate new images or video.
+- Read the complete existing inventory before `etsy_update_listing_inventory`. Preserve every approved product, variation value, offering, price, quantity, enabled flag and processing/readiness value. Price and quantity belong to inventory in the current API. Do not replace a full table with just the changed cell.
+- Read `etsy_get_listing_personalization` before a requested `etsy_update_listing_personalization`; preserve approved questions/options and explain complete-set replacement.
+- Assign an existing shipping or return profile through `etsy_update_listing` using only the intended profile ID. Read the listing afterward. This can update an existing Etsy draft or active listing without changing its state unless that state change is explicitly sent.
+- Read current language/translation information before supplying approved translations through the matching direct translation operation.
 
-## Final gate
+## Publication
 
-Show the ready Etsy draft, its media, options, price, delivery and return terms. Only an explicit seller request to publish authorizes `set_listing_state` with `state: "active"` and `confirm: true`. Read the listing back afterward. Report any failed or unconfirmed step by name; never claim the whole listing is complete because one tool succeeded.
+Show the completed draft, media, options, price, delivery and return terms. Only explicit seller approval to publish permits `etsy_update_listing` with `body.state: "active"`. Etsy may apply its normal fees. Follow the returned readback hint and confirm the actual Etsy state.
+
+The presence of an Etsy ID or an accepted HTTP request is not proof that every requested detail is complete. Report failed media transfers, validation errors and uncertain steps accurately.
+
+## Optional MakeBox staging
+
+If the seller specifically wants a MakeBox-local draft, saved variation configuration or internal AI workflow, use the corresponding MakeBox tools and their documented cost/sync behavior. Local staging is not an Etsy update. It is an optional workflow, not a prerequisite for direct API use.
