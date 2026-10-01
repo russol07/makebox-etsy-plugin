@@ -1,7 +1,7 @@
 {
   "name": "makebox-etsy",
   "displayName": "MakeBox for Etsy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create and optimize Etsy listings, research keywords, manage shop details and orders with MakeBox MCP and guided workflows.",
   "icon": "assets/makebox-logo.png",
   "privacyPolicyUrl": "https://www.makebox.ai/privacy",
