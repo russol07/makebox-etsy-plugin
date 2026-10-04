@@ -48,7 +48,7 @@ def main():
             else:
                 folder = ".codex-plugin"
                 interface = metadata.setdefault("interface", {})
-                interface["shortDescription"] = "Create and improve Etsy listings"
+                interface["shortDescription"] = "Create better Etsy listings"
                 interface["longDescription"] = (
                     "An Etsy SEO strategist for complete copy-ready listings, factual audits, keyword evidence, "
                     "options, personalization, shipping/packaging and digital contents. Works from pasted text, photos "

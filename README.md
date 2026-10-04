@@ -2,7 +2,7 @@
 
 ![MakeBox AI icon](assets/makebox-logo.png)
 
-Version **0.3.2** provides an Etsy SEO strategist and seven guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
+Version **0.3.3** provides an Etsy SEO strategist and seven guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
 
 The manager combines SEO, product positioning, conversion copy, options, delivery and careful shop operations. It does not guess material, package size, search volume, delivery promises or ranking outcomes. Long descriptions are returned in full with their factual sections preserved. [Worked examples](references/worked-examples.md) and [fillable templates](templates/product-brief.md) demonstrate the result.
 

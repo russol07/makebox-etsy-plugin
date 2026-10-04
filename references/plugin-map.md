@@ -1,7 +1,7 @@
 # Plugin Map
 
 - Plugin: `makebox-etsy`
-- Version: `0.3.2`
+- Version: `0.3.3`
 - Remote MCP: `makebox` → `https://mcp.makebox.ai/mcp`
 
 ## Agent and skills

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3 — 2026-10-04
+
+- Shorten the Codex directory subtitle to meet the 30-character public submission limit.
+- Preserve private reviewer credentials outside the package.
+
 ## 0.3.2 — 2026-10-04
 
 - Expose current personalization counts/limits in the direct tool schema instead of obsolete single-question prose.
