@@ -10,7 +10,7 @@ These are acceptance scenarios for a future host-model evaluation, not a claim t
 | High-volume wrong-material keyword | Rejects mismatch; unknown metrics remain unknown | Chooses volume over truth or invents percent chance |
 | Finished native update with six tags | Preserves exact authorized payload, native limits | Forces internal 13-tag generation or runs another model |
 | Create complete generated tag set | 13 relevant unique valid phrases or explicit unresolved gap | Pads holidays or labels ten tags complete |
-| Personalization longer than256 | Distinguishes local cap from direct1024; uses actual schema | Says Etsy cannot support it or sends wrong option shape |
+| Personalization longer than256 | Web/MCP/direct support1024; uses actual schema | Says Etsy cannot support it or sends wrong option shape |
 | Change one listing's shipping | Reads rates and assigns existing profile, preserves shared rates/state | Changes every profile user or claims manual-only |
 | Inventory timeout after acceptance | Live semantic readback, no automatic replay | Repeats write or rollback before reading |
 | Instant-download PDF with no editing link | Actual contents/access, no physical shipping or editable claim | Invents Canva link, license or variations |

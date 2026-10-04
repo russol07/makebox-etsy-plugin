@@ -61,7 +61,7 @@ def main():
                                               "Analyze my keyword CSV and explain which phrases fit my product."]
                 ext = metadata.setdefault("extensions", {}).setdefault("com.openai", {})
                 ext["onboardingSkill"] = "./skills/makebox-shop-manager/SKILL.md"
-                ext.setdefault("publication", {})["release_notes"] = "Version 0.3.0: detailed Etsy strategist role, seven self-contained workflows, templates, guides and optional direct Etsy execution."
+                ext.setdefault("publication", {})["release_notes"] = f"Version {version}: detailed Etsy strategist role, seven workflows, 1024-character personalization, fixed optional-text fees and verified direct Etsy execution."
                 if mode == "connected":
                     metadata["mcpServers"] = "./.mcp.json"
                     review = ext.get("review", {})

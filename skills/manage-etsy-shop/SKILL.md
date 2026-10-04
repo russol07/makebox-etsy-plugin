@@ -14,7 +14,7 @@ Read [delivery/packaging](../../references/shipping-packaging.md) for shipping a
 - Processing: actual ready-to-ship/made-to-order times and working calendar; readiness-state and shipping-profile unit enums differ.
 - Returns: seller-approved returns/exchanges/deadline; custom goods do not automatically mean no returns.
 - Variants/inventory: full sellable matrix and semantic readback; preserve unchanged combinations.
-- Personalization: practical question/input instructions, direct versus local limit, complete existing set preserved.
+- Personalization: up to five questions and 1024 text characters in MakeBox/direct Etsy, practical instructions, complete existing set and prices preserved. Optional text supports a fixed fee; variation offerings use full item prices.
 - Sections/partners: real organization/maker relationships, no SEO slogans substituted for factual attributes.
 
 ## Execute accurately

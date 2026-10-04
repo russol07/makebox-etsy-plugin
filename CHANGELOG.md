@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1 — 2026-10-04
+
+- Align web/MCP/direct personalization at 1024 characters and five fields.
+- Explain supported fixed optional-text fees, Money conversion, explicit fee removal and complete variation prices.
+- Document scoped personalization writes and required price/field readback; update offline QA.
+
 ## 0.3.0 — 2026-10-04
 
 - Expand the manager into an Etsy SEO/product-marketing role with explicit standalone and connected modes.

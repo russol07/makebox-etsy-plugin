@@ -8,7 +8,7 @@ Use for complete creation or missing-information diagnosis. For a narrow edit co
 | Construction | Confirmed materials, finish, technique, maker, production partner | Truthful positioning, category and care |
 | Specifications | Product size/units, verified capacity, available colors/sizes, tolerances | Prevent unsupported photo inferences |
 | Buyer/use | Main use, problem, style, recipient, relevant occasion | Select coherent purchase intent |
-| Customization | Editable elements, inputs, limits, font/design options, proof process | Obtain production-ready information |
+| Customization | Editable elements, inputs, limits, font/design options, fixed optional-text fee, proof process | Obtain production-ready information |
 | Commerce | Price/currency, stock, variant differences, SKU | Never invent price, stock or sale |
 | Fulfillment | Origin, ready/made-to-order, processing, destinations, service, packed weight/size, returns | Separate dispatch, transit and promises |
 | Digital | Files/count/formats, dimensions/resolution, software, editable parts, access, license | Avoid promising absent files/features |

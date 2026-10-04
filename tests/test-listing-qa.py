@@ -73,6 +73,8 @@ class ListingQA(unittest.TestCase):
         self.packet["personalization"][0]["max_allowed_characters"] = 1000
         self.assertTrue(qa.check(self.packet)["structural_valid"])
         self.packet["personalization_route"] = "local"
+        self.assertTrue(qa.check(self.packet)["structural_valid"])
+        self.packet["personalization"][0]["max_allowed_characters"] = 1025
         self.assertFalse(qa.check(self.packet)["structural_valid"])
 
     def test_dropdown_option_shape(self):

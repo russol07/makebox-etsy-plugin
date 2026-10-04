@@ -1,7 +1,7 @@
 {
   "name": "makebox-etsy",
   "displayName": "MakeBox for Etsy",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Etsy SEO strategist and complete listing workflows: useful copy-ready content without MCP, plus optional direct Etsy tools for authorized shop operations.",
   "icon": "assets/makebox-logo.png",
   "privacyPolicyUrl": "https://www.makebox.ai/privacy",

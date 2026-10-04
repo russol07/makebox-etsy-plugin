@@ -101,9 +101,18 @@ def check(packet, mode="generated"):
                 errors.append(f"question {i}: instructions must be at most120 characters")
             if not isinstance(question.get("required"), bool):
                 errors.append(f"question {i}: required must be a boolean")
+            addon = question.get("add_on_price")
+            if addon is not None:
+                if isinstance(addon, bool) or not isinstance(addon, (int, float)) or not math.isfinite(addon) or addon < 0:
+                    errors.append(f"question {i}: invalid fixed add-on price")
+                elif addon > 0:
+                    if qt != "text_input" or question.get("required"):
+                        errors.append(f"question {i}: surcharge only on optional text fields")
+                    if packet.get("currency") == "USD" and not 0.2 <= addon <= 500:
+                        errors.append(f"question {i}: USD surcharge must be 0.20–500")
             if qt == "text_input":
                 limit = question.get("max_allowed_characters")
-                cap = 256 if packet.get("personalization_route") == "local" else 1024
+                cap = 1024
                 if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= cap:
                     errors.append(f"question {i}: text limit must be 1–{cap} on chosen route")
             elif qt in ("dropdown", "labeled_upload", "unlabeled_upload"):

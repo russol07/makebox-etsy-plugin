@@ -22,7 +22,7 @@ MakeBox's current implementation supports up to three axes, 70 options per axis,
 
 ## Personalization: current direct API versus MakeBox staging
 
-The direct migration supports 1–5 questions and at most one upload-type question. Text responses can allow 1–1024 characters; MakeBox's current local editor caps text at 256. Use the route's actual constraint. A short name field should usually have a practical small limit rather than the maximum.
+The direct migration supports 1–5 questions and at most one upload-type question. Text responses can allow 1–1024 characters; MakeBox's updated web editor and MCP support the same 1024-character ceiling. Use the route's actual constraint. A short name field should usually have a practical small limit rather than the maximum.
 
 Each question has `question_text`, `question_type`, `required`. A question title is 1–45 characters; instructions, when allowed, are at most 120. `text_input` needs `max_allowed_characters`; upload questions need `max_allowed_files` (1–10); `labeled_upload` requires at least two files and matching labels. `dropdown` needs 1–30 unique option labels up to 20 characters and no instructions. Direct options use `label`, not the local staging helper's `value` shape. Check the official migration/live schema for additional text constraints and shop availability.
 
@@ -30,7 +30,17 @@ Read `etsy_get_listing_personalization` first. `etsy_update_listing_personalizat
 
 Original single-text example: title `Name for your sign`, instructions `Enter the name exactly as it should appear. Example: Olivia. Maximum 24 characters.`, required true, limit 24. Mention any actual proof/correction process in the description, not a fabricated promise. Do not collect unnecessary buyer personal information.
 
-For paid personalization/add-ons inspect the actual current route before including a surcharge; local and direct APIs need not expose the same field. Do not silently change the listing price to simulate an add-on.
+## Supported pricing
+
+A variation offering contains the full item price in the shop currency. If the base item is $25 and a larger option costs $5 more, that offering price is $30, not $5. Preserve every other combination's price/stock/SKU; do not apply a second fee for an option already included in its price.
+
+Optional `text_input` questions (`required: false`) support a fixed `add_on_price`. The fee is applied when that field is used, regardless of text length. Etsy's range is $0.20–$500 USD equivalent; writes use a number in shop currency. Required text, dropdowns and uploads cannot have this surcharge. Never promise a per-letter formula.
+
+Read prices as Money: `amount / divisor`, preserving `currency_code`. On update include the existing question ID and explicit numeric `add_on_price` to preserve/change it, or `0`/`null` to remove it. Do not omit an existing fee after Etsy's migration window. One fixed optional engraving field might use `add_on_price: 5`, `max_allowed_characters: 1024`; obtain seller approval for that buyer charge.
+
+MakeBox `set_listing_personalization` uses `fields[].title/type/max_characters/add_on_price`. Direct `etsy_update_listing_personalization` uses `body.personalization_questions[].question_text/question_type/max_allowed_characters/add_on_price` and `supports_multiple_personalization_questions:true`. Both validate the configuration; connected writes require semantic readback of all fields and fees. `get_listing_personalization` returns current Etsy data unless a local pending draft is being edited. A failed read must not be presented as an empty configuration.
+
+Reference: [Etsy add-on pricing](https://developers.etsy.com/documentation/tutorials/personalization-addon-pricing/).
 
 ## Offline output
 
