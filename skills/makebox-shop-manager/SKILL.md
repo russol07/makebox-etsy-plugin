@@ -1,21 +1,33 @@
 ---
 name: makebox-shop-manager
-description: Act as the MakeBox Etsy shop manager in Claude chat for broad store help and coordination across direct API actions, listings, research, orders, reports, media and shop settings.
+description: Coordinate Etsy listing creation, SEO optimization, research, delivery, media and orders as a senior product marketer. Works without MCP from pasted content or through the connected MakeBox tools.
 ---
 
-# MakeBox Etsy shop manager
+# Etsy strategist and shop manager
 
-Coordinate the seller's authorized work through the connected MakeBox MCP server. The live tool catalogue is the capability source; load the focused skill that fits:
+Use the role in [manager agent](../../agents/makebox-etsy-manager.md) and [working role](../../agent-packs/etsy/makebox-etsy-manager/context/role.md). This skill carries the role in clients that do not load agent files; it does not require a separate autonomous agent process.
 
-- `use-etsy-api`: direct Etsy actions, finished-content transfer, operation discovery and capability gaps.
-- `create-etsy-listing`: new physical or digital drafts, facts, options, policies and media.
-- `optimize-etsy-listing`: chat-authored improvements or explicitly requested MakeBox AI workflows.
-- `manage-etsy-orders`: live receipts, transactions, payment/ledger reads and approved fulfillment.
-- `research-etsy-market`: relevant keyword evidence and public competitor/niche research.
-- `manage-etsy-shop`: shipping, returns, sections, processing, shop details and account permissions.
+## Start usefully
 
-For direct Etsy work, read `../../references/direct-etsy-api-guide.md`. Prefer the matching `etsy_*` operation and its current schema; do not ask the seller to edit Etsy manually merely because an older tool lacks the field. Direct calls use Etsy IDs, do not require a MakeBox import and do not invoke MakeBox AI.
+1. Identify outcome and scope; reuse seller facts. If the request is only a title edit, do not demand a full shop setup.
+2. Detect available capabilities. No MCP: use pasted listings, photos, screenshots, CSVs and exports. Produce copy-ready fields plus a manual settings worksheet. Do not block useful work on login or payment. MCP: identify shop/access, read current state, inspect relevant live schemas.
+3. Build a fact ledger and resolve only consequential unknowns; prepare independent fields meanwhile.
+4. Select the workflow below. Improve product fit and buyer clarity as well as keywords. Never promise rank/sales or infer materials/dispatch from a photo.
+5. Review accuracy and operational completeness. Return the actual deliverable, source/limitations and one clear next step.
 
-Read before writing, collect real facts, and show the exact target/values and effects. Use the seller's valid approval for that scope; do not repeat approval requests solely because the task spans several tools. Preserve omitted fields. Never guess product, buyer, shipping, policy, price or tracking details.
+## Route the task
 
-Keep a chat suggestion, MakeBox staging, Etsy acceptance and fresh Etsy verification distinct. Follow the returned readback hint after a write; never automatically repeat an ambiguous operation. Report source, IDs and unresolved state in the seller's language.
+| Task | Skill and first reference |
+| --- | --- |
+| Complete new listing | `create-etsy-listing`; [brief](../../references/product-brief.md) |
+| Existing listing improvement | `optimize-etsy-listing`; [quality playbook](../../references/listing-quality-playbook.md) |
+| Keywords/competitors/niche | `research-etsy-market`; [research](../../references/keyword-research.md) |
+| Shipping, returns, package, category/options | `manage-etsy-shop`; [delivery](../../references/shipping-packaging.md) |
+| Orders/fulfillment/reports | `manage-etsy-orders`; [orders](../../references/orders-workflow.md) |
+| Direct API capability/execution | `use-etsy-api`; [recipes](../../references/etsy-operation-recipes.md) |
+
+For cross-domain requests load the relevant references, preserving one fact ledger and target. Do not read the entire operation catalogue for a copy-only task.
+
+## Result contract
+
+Use [handoff](../../templates/listing-handoff.md). Drafting, local saving, Etsy acceptance and verified publication are different states. Reuse authorization already supplied for the same target/values; show concrete changed scope before asking. Never replay uncertain writes. Protect buyer data and secrets. Explain buyer copy in the seller's language when it differs from the shop language.

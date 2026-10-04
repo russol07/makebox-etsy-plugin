@@ -1,17 +1,19 @@
 ---
 name: research-etsy-market
-description: Research relevant Etsy keywords, competitors, reviews and product niches through MakeBox, distinguishing current public Etsy observations from MakeBox keyword estimates.
+description: Research product-relevant Etsy keywords, competitors and niches from seller reports, CSVs, public samples or MakeBox estimates; explain sources, missing metrics and selection reasons without inventing demand or ranking guarantees.
 ---
 
 # Research keywords and niches
 
-Use MakeBox MCP for evidence, then apply product relevance. Read `../../references/direct-etsy-api-guide.md` when selecting an exact Etsy API method.
+Read [research guide](../../references/keyword-research.md). First establish item, real traits, buyer intent, language/market and scope; use [brief](../../references/product-brief.md) only for missing relevant facts.
 
-1. Establish the real product, confirmed materials/use and seller constraints. Read an existing target with `etsy_get_listing` when available; do not treat competitor copy as product facts.
-2. MakeBox `search_keywords` and `check_keywords` provide database estimates within plan quotas. Missing statistics mean unknown, not zero demand. An opportunity score is not a ranking prediction.
-3. Public direct tools include `etsy_find_all_listings_active`, `etsy_find_shops`, `etsy_get_shop` and listing/shop review reads. Discover the relevant live schema and paginate. Public research may target other shops; private writes may not.
-4. Existing `search_top_listings`, `competitor_tags`, `find_shops_in_my_niche` and analysis tools can add MakeBox-specific summaries. Label their source and observation date. Lifetime shop sales are not per-listing sales.
-5. Rank phrases by fit with the seller's product and buyer intent, then available demand/competition evidence. Exclude unsupported product claims, unrelated brands and filler phrases.
-6. Return an evidence-backed shortlist with uncertainty. When drafting tags, follow Etsy limits and seller intent. Exactly 13 multi-word tags is a MakeBox AI generation rule, not an extra requirement on a valid seller-approved direct API request.
+## Workflow
 
-Do not promise traffic, sales or a search position. Research does not authorize listing edits or paid AI generation.
+1. Gather seller search/conversion reports or supplied datasets with date/definitions. MCP absent: analyze these locally or use authorized public browsing. With no numeric evidence, provide clearly labelled semantic hypotheses.
+2. Build intent groups and reject misleading materials/product types, unrelated holidays and unauthorized brands before ranking candidates.
+3. Connected: `search_keywords` finds candidates (up to100); `check_keywords` validates batches of at most40. `competitor_tags`/`search_top_listings` give sample language/offers. Inspect each current schema; direct public alternatives are in the [index](../../references/etsy-operation-index.md).
+4. With thousands of CSV terms, filter/deduplicate and shortlist rather than making thousands of calls. Missing statistics remain unknown. Compare relevance, intent and coverage before volume/competition.
+5. Compare like-for-like offers, not a single cup versus a set or a template versus print. Shop lifetime sales are not listing sales; returned search order is not universal rank.
+6. Deliver the [evidence table](../../templates/keyword-evidence.md), recommended primary phrase, title/tag allocation, rejected misleading phrases and a feasible test plan. Tags fit ≤20 characters; natural longer phrases may remain in prose.
+
+Retain supplied clicks/trends/seasonality only if actually present and defined. Provider opportunity is not a conversion probability. Never claim exact search demand from tag frequency, guarantee top placement, copy protected content or request private competitor orders. Research alone does not authorize any shop change or paid internal generation.

@@ -1,19 +1,26 @@
 ---
 name: manage-etsy-shop
-description: Manage seller-authorized Etsy shop settings through MakeBox, including sections, shipping and return profiles, processing, holiday preferences, shop details, account permissions and monitoring.
+description: Plan or manage Etsy categories, attributes, variants, personalization, shipping/processing profiles, package measurements, returns, sections and seller settings using confirmed facts; prepare manual worksheets without MCP.
 ---
 
-# Manage an Etsy shop
+# Manage Etsy shop settings
 
-Read `../../references/direct-etsy-api-guide.md`. Use current `etsy_*` schemas for direct shop operations, and read the existing configuration before changing it.
+Read [delivery/packaging](../../references/shipping-packaging.md) for shipping and [options/personalization](../../references/variations-personalization.md) for item choices. Read [operation recipes](../../references/etsy-operation-recipes.md) for connected actions. Offline, produce complete named settings and manual field steps without invented IDs.
 
-1. Identify the selected workspace with `list_shops` and plan access with `get_account_status`. Current Etsy shop details are available through `etsy_get_shop`; `etsy_get_me` identifies the authorized Etsy account.
-2. Use the corresponding section read/create/update/delete operations for shop structure. Explain what removing a section does to its listings and use the seller's exact approval.
-3. Read `etsy_get_shop_shipping_profiles` and `etsy_get_shop_shipping_profile` to show destinations and charges. To assign a profile to an existing listing, use `etsy_update_listing` with only the approved `shipping_profile_id`, then read it back. The focused `set_listing_shipping_profile` helper is also available. A manual Etsy edit is not required merely because a convenience tool lacks the field.
-4. Shipping profile, destination and upgrade operations can change terms for multiple listings. Identify affected listings, show rates/origin/timing and obtain authorization for that scope. Do not edit or delete a shared profile merely to fix one listing; first move dependencies when appropriate.
-5. Read return policies and confirm returns, exchanges and deadline before creating or changing one. Direct listing policy assignment uses `etsy_update_listing`; policy consolidation can move all dependent listings and delete the source policy, so explain the complete effect.
-6. Use the live processing/readiness and holiday-preference tools for confirmed dispatch schedules. Use `etsy_update_shop` only for the seller-approved text fields. Do not guess promises to buyers.
-7. Personal email or saved-address methods are for the connected Etsy user's account and may require optional `email_r` or `address_r` consent. Read the returned blocker and reconnect link; never request credentials or silently expand access.
-8. Existing MakeBox monitoring tools remain available within plan limits. Distinguish their stored observations from live Etsy data.
+## Select the resource
 
-After an accepted write, read the resource again and report the actual state. An overview request authorizes reading, not a shop change.
+- Category/attributes: seller taxonomy and category properties; choose the most specific accurate supported option. Do not infer materials or assign unrelated occasions. `etsy_get_listing_properties` reads the list; single-property read may return501.
+- Delivery: origin/destinations, processing versus transit, confirmed packed weight/size/units, actual service/rates. A profile name does not prove paid/free rates.
+- Processing: actual ready-to-ship/made-to-order times and working calendar; readiness-state and shipping-profile unit enums differ.
+- Returns: seller-approved returns/exchanges/deadline; custom goods do not automatically mean no returns.
+- Variants/inventory: full sellable matrix and semantic readback; preserve unchanged combinations.
+- Personalization: practical question/input instructions, direct versus local limit, complete existing set preserved.
+- Sections/partners: real organization/maker relationships, no SEO slogans substituted for factual attributes.
+
+## Execute accurately
+
+Identify shop, read resource and inspect live schema. Assign an existing shipping/return profile with `etsy_update_listing` using the exact profile ID; the connector can do this on existing listings. Changing destination prices requires the destination tool, not profile metadata update.
+
+Before editing shared profiles, show the affected scope and reuse only authorization covering it. If the request is for one item, do not change every other listing. New profile creation and subsequent assignment are different steps. Deletion/consolidation may remove a resource or move many listings; surface that consequence. Read authoritative state after each approved action.
+
+Use the [105-operation index](../../references/etsy-operation-index.md) when a capability is unclear; inspect schema before saying it is unavailable. Tools cover the published API, not every Etsy website feature. Keep acceptance separate from verification and do not retry uncertain writes. Return settings, affected IDs, readback, unresolved facts and next step.

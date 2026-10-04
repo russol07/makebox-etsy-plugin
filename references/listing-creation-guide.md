@@ -2,6 +2,8 @@
 
 Use the seller's facts and approval. Read [Direct Etsy API through MakeBox](direct-etsy-api-guide.md) for the transport and result contract. This guide does not authorize a write by itself.
 
+For content preparation, first use the [fact brief](product-brief.md) and [quality playbook](listing-quality-playbook.md). No MCP is needed to create a copy-ready packet: use the [handoff](../templates/listing-handoff.md), settings worksheets and [worked examples](worked-examples.md). The steps below concern connected execution, not prerequisites for drafting.
+
 ## Prepare the draft
 
 1. Identify the workspace with `list_shops` and access with `get_account_status`. Workspace UUIDs are not Etsy shop IDs; `etsy_get_me` returns the authorized Etsy identity. Private direct operations bind the shop inside the server.
@@ -17,6 +19,7 @@ Use the seller's facts and approval. Read [Direct Etsy API through MakeBox](dire
 - Use `etsy_upload_listing_image` and `etsy_get_listing_images` for photos; `etsy_upload_listing_file` and `etsy_get_all_listing_files` for digital downloads; `etsy_upload_listing_video` and `etsy_get_listing_videos` for existing videos. These upload/manage media and do not generate new images or video.
 - Read the complete existing inventory before `etsy_update_listing_inventory`. Preserve every approved product, variation value, offering, price, quantity, enabled flag and processing/readiness value. Price and quantity belong to inventory in the current API. Do not replace a full table with just the changed cell.
 - Read `etsy_get_listing_personalization` before a requested `etsy_update_listing_personalization`; preserve approved questions/options and explain complete-set replacement.
+- Use `supports_multiple_personalization_questions: true` for new question types/multiple questions; direct options use `label`. Direct API text limits differ from local MakeBox staging; see [options guide](variations-personalization.md).
 - Assign an existing shipping or return profile through `etsy_update_listing` using only the intended profile ID. Read the listing afterward. This can update an existing Etsy draft or active listing without changing its state unless that state change is explicitly sent.
 - Read current language/translation information before supplying approved translations through the matching direct translation operation.
 

@@ -1,24 +1,30 @@
 ---
 name: optimize-etsy-listing
-description: Improve Etsy listing copy or other approved fields through MakeBox, using chat-authored suggestions and direct Etsy updates by default; use internal MakeBox AI or bulk jobs only when requested and their cost is approved.
+description: Audit or improve an existing Etsy listing using product facts, buyer intent and available performance evidence; preserve specifications and operational settings. Return complete copy for manual use or execute approved connected edits.
 ---
 
-# Improve an existing Etsy listing
+# Optimize an Etsy listing
 
-Use the connected MCP server and read `../../references/direct-etsy-api-guide.md`. Keep the seller's verified product facts and the current Etsy content in view.
+## Establish baseline and scope
 
-1. Read the listing with `etsy_get_listing`; identify which fields the seller wants changed. Read images or inventory when relevant. MakeBox keyword tools can provide evidence within their quotas.
-2. Prepare the requested improvements in this chat or preserve the seller's finished replacement. Compare the proposed values with the current listing. No additional MakeBox generation is required.
-3. Follow Etsy's native field limits and avoid invented facts, irrelevant keywords or ranking guarantees. If the seller requests a full SEO proposal, aim for a useful complete tag set; do not force 13 multi-word tags into an approved direct request that Etsy permits with fewer.
-4. Show the exact changes. After approval for those values and targets, use `etsy_update_listing` for its exposed fields. Price/quantity/variation changes use a freshly read, complete `etsy_update_listing_inventory` payload; preserve options not approved for removal.
-5. Read back with `etsy_get_listing` or `etsy_get_listing_inventory`. `accepted_by_etsy: true` with `verified: false` is HTTP acceptance, not a separate verification. Never activate a draft as a side effect of optimization.
+Use pasted/exported content offline; state its timestamp/limits. Connected, prefer `etsy_get_listing` and relevant live media/inventory/personalization/profile reads. MakeBox row IDs differ from Etsy IDs. Ask whether the requested scope is text, media, specific settings or a full audit when it cannot be inferred.
 
-For a chat-authored batch, confirm the exact listing set and per-listing changes, apply the approved requests, and track each result. Do not start a paid MakeBox AI job just because the request mentions several listings.
+Read [quality playbook](../../references/listing-quality-playbook.md) and [brief](../../references/product-brief.md). Inventory all confirmed details before editing. Preserve dimensions, contents, compatibility, customization, care, processing/returns and license. Surface contradictions rather than rewrite them as facts.
 
-## Optional MakeBox AI workflow
+## Diagnose and propose
 
-If the seller asks MakeBox to generate the improvements, use `optimize_listing` only after its scope and allowance are approved. It returns an unsaved suggestion and consumes a MakeBox AI allowance. Local staging with `update_listing(publish: false)` and a subsequent approved push remain available when requested.
+1. Identify the main purchase intent and current offer consistency. Look for unclear item/count, misleading photos, weak opening or missing ordering information.
+2. Use [keyword evidence](../../references/keyword-research.md), with dates and missing values retained. If reports exist, separate listing/shop metrics and discovery versus conversion hypotheses. Without data do not claim a causal diagnosis or forecast.
+3. Improve the chosen fields only: clear title, natural full description, distinct relevant tags and accurate attributes. Explain each meaningful change. Preserve useful existing terms unless there is a reason to replace them.
+4. Audit relevant [options](../../references/variations-personalization.md), [delivery](../../references/shipping-packaging.md) and [media](../../references/media-digital.md) when the scope warrants it; do not silently change price, stock, state, shared policy or shipping.
+5. Return before/after for edited fields plus the complete revised description and copy-ready set. For a long description, reorganize without losing factual sections. Use the [handoff](../../templates/listing-handoff.md).
 
-For an internal bulk AI run: `quote_bulk_seo` → approval of list and cost → `start_bulk_seo` → `get_bulk_seo_job` → review → approved `push_bulk_seo_job`. A completed job is not publication. The all-results push requires approval for every included listing; use the per-listing path if only some are approved.
+A complete generated SEO set targets thirteen relevant valid tags. A seller-approved narrow/native update is not forced into the internal AI exact-13 rule. No invented quality score or guaranteed Etsy result.
 
-Never repeat an uncertain write or successful generation automatically.
+## Apply only the intended changes
+
+Standalone: manual fields, preview and save instructions; no claimed write. Connected: inspect `etsy_update_listing` schema, show exact changed fields, reuse authorization for them, send once and read back. Text transport does not need MakeBox generation.
+
+If the seller specifically requests MakeBox internal `optimize_listing` or bulk AI, disclose/quote allowance first; generated output is a proposal. For bulk use `quote_bulk_seo` → approved `start_bulk_seo` → `get_bulk_seo_job` → review → approved push. Preserve per-listing review and partial statuses. Never automatically replay an uncertain Etsy write or paid generation.
+
+Record baseline, changes, next evaluation window and verified/unverified status. Use [release check](../../checklists/listing-release.md).

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — 2026-10-04
+
+- Expand the manager into an Etsy SEO/product-marketing role with explicit standalone and connected modes.
+- Rewrite all seven skills with useful offline deliverables, task-specific references and precise execution boundaries.
+- Add product fact ledger, long-description/copy rules, keyword evidence, physical shipping/package/returns, variations, multi-question personalization, media/digital and order playbooks.
+- Add four fillable templates, release checklist and fictional physical/digital/ambiguous-input examples.
+- Bundle a generated index and input schemas for 105 direct tools, with exact parity against the local MakeBox runtime and 21 locally validated API fixtures.
+- Add optional offline structural QA and meaningful regression cases; it does not certify factual truth, ranking or Etsy publication.
+- Provide connected and standalone package variants from one source. No credential, automatic background worker, paid generation or real-shop write is bundled.
+
 ## 0.2.0 — 2026-10-01
 
 - Route direct Etsy requests and seller-approved content through the live `etsy_*` tools.
