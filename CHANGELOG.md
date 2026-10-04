@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.2 — 2026-10-04
+
+- Expose current personalization counts/limits in the direct tool schema instead of obsolete single-question prose.
+- Document preservation of existing Etsy questions during unrelated SEO pushes.
+
 ## 0.3.1 — 2026-10-04
 
 - Align web/MCP/direct personalization at 1024 characters and five fields.

@@ -3943,13 +3943,16 @@
                       "minimum": 1
                     },
                     "question_text": {
-                      "type": "string"
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 45
                     },
                     "instructions": {
                       "type": [
                         "string",
                         "null"
-                      ]
+                      ],
+                      "maxLength": 120
                     },
                     "question_type": {
                       "type": "string",
@@ -3967,13 +3970,17 @@
                       "type": [
                         "integer",
                         "null"
-                      ]
+                      ],
+                      "minimum": 1,
+                      "maximum": 10
                     },
                     "max_allowed_characters": {
                       "type": [
                         "integer",
                         "null"
-                      ]
+                      ],
+                      "minimum": 1,
+                      "maximum": 1024
                     },
                     "options": {
                       "type": [
@@ -4008,7 +4015,9 @@
                     }
                   },
                   "additionalProperties": false
-                }
+                },
+                "minItems": 1,
+                "maxItems": 5
               }
             },
             "additionalProperties": false

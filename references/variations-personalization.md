@@ -47,3 +47,5 @@ Reference: [Etsy add-on pricing](https://developers.etsy.com/documentation/tutor
 Return a settings table and exact question text/instructions/type/required/limit. Return the full variant table for manual entry, with unavailable combinations noted. Explain which changes are proposals rather than configured Etsy fields. Never fabricate a taxonomy/property/profile ID. Use [handoff template](../templates/listing-handoff.md).
 
 Source checked 2026-10-04: [Etsy personalization migration](https://developers.etsy.com/documentation/tutorials/personalization-migration/). Implementation snapshot: MakeBox personalization and Etsy-limit modules. Current API documentation corrects older schema prose describing only one text field; verify the live response when rolling out newer types.
+
+An unrelated SEO/content push preserves even a single existing Etsy question when MakeBox only has a legacy snapshot. Editing the question requires a read of its current full configuration and approval of the replacement.

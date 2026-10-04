@@ -30,6 +30,14 @@ def schema_for(op):
     required = [p["name"] for p in params if p["required"]]
     if op.get("bodySchema") and op["id"] != "tokenScopes":
         props["body"] = compact(op["bodySchema"])
+        if op["id"] == "updateListingPersonalization":
+            questions = props["body"]["properties"]["personalization_questions"]
+            questions.update(minItems=1, maxItems=5)
+            fields = questions["items"]["properties"]
+            fields["question_text"].update(minLength=1, maxLength=45)
+            fields["instructions"]["maxLength"] = 120
+            fields["max_allowed_characters"].update(minimum=1, maximum=1024)
+            fields["max_allowed_files"].update(minimum=1, maximum=10)
         required.append("body")
     if not read:
         props["confirm"] = {"type": "boolean", "const": True}
