@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.4 — 2026-10-05
+
+- Add complete Claude directory homepage, documentation, support, repository, terms and discovery metadata.
+- Identify the existing proprietary plugin license without changing its terms.
+- Preserve the existing privacy policy, workflows, MCP connection and reviewer test cases.
+
 ## 0.3.3 — 2026-10-04
 
 - Shorten the Codex directory subtitle to meet the 30-character public submission limit.

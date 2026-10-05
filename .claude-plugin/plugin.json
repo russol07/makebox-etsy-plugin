@@ -1,12 +1,29 @@
 {
   "name": "makebox-etsy",
   "displayName": "MakeBox for Etsy",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Etsy SEO strategist and complete listing workflows: useful copy-ready content without MCP, plus optional direct Etsy tools for authorized shop operations.",
   "icon": "assets/makebox-logo.png",
   "privacyPolicyUrl": "https://www.makebox.ai/privacy",
   "author": {
     "name": "MakeBox AI",
     "url": "https://www.makebox.ai"
-  }
+  },
+  "homepage": "https://www.makebox.ai",
+  "documentationUrl": "https://github.com/russol07/makebox-etsy-plugin#readme",
+  "supportUrl": "https://www.makebox.ai/contact",
+  "repository": "https://github.com/russol07/makebox-etsy-plugin",
+  "termsOfServiceUrl": "https://www.makebox.ai/terms",
+  "license": "LicenseRef-MakeBox-Proprietary",
+  "keywords": [
+    "etsy",
+    "ecommerce",
+    "seo",
+    "listing-creation",
+    "listing-optimization",
+    "keyword-research",
+    "shop-management",
+    "orders",
+    "mcp"
+  ]
 }

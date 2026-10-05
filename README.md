@@ -2,7 +2,7 @@
 
 ![MakeBox AI icon](assets/makebox-logo.png)
 
-Version **0.3.3** provides an Etsy SEO strategist and seven guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
+Version **0.3.4** provides an Etsy SEO strategist and seven guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
 
 The manager combines SEO, product positioning, conversion copy, options, delivery and careful shop operations. It does not guess material, package size, search volume, delivery promises or ranking outcomes. Long descriptions are returned in full with their factual sections preserved. [Worked examples](references/worked-examples.md) and [fillable templates](templates/product-brief.md) demonstrate the result.
 
@@ -30,7 +30,7 @@ The connector sends the selected tool request to MakeBox at `https://mcp.makebox
 
 The plugin contains no credentials or autonomous background worker. Optional Python scripts perform local structural checks and build reference files; they make no network calls, spend no credits and execute no Etsy action. No hooks run them automatically. Seller-owned files are uploaded only within authorization through `get_upload_link` or the Asset Library; direct multipart fields use `asset_id`. Never share tokens or arbitrary paths.
 
-See [MakeBox](https://www.makebox.ai/), the [privacy policy](https://www.makebox.ai/privacy), and [support](mailto:support@makebox.ai).
+See the [MakeBox homepage](https://www.makebox.ai/), [plugin documentation](https://github.com/russol07/makebox-etsy-plugin#readme), [privacy policy](https://www.makebox.ai/privacy), [terms of service](https://www.makebox.ai/terms), and [support/contact page](https://www.makebox.ai/contact). Plugin use is governed by the bundled [proprietary license](LICENSE).
 
 ## Components
 
