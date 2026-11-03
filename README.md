@@ -2,7 +2,7 @@
 
 ![MakeBox AI icon](assets/makebox-logo.png)
 
-Version **0.3.4** provides an Etsy SEO strategist and seven guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
+Version **0.3.7** provides an Etsy SEO strategist and eight guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
 
 The manager combines SEO, product positioning, conversion copy, options, delivery and careful shop operations. It does not guess material, package size, search volume, delivery promises or ranking outcomes. Long descriptions are returned in full with their factual sections preserved. [Worked examples](references/worked-examples.md) and [fillable templates](templates/product-brief.md) demonstrate the result.
 
@@ -19,6 +19,8 @@ The server exposes adapters for all 105 operations in the official Etsy API snap
 ## Connect and use
 
 Install the connected variant, then connect **MakeBox** through OAuth when you need live operations. Use `list_shops` and `get_account_status` to identify workspace/access. Private actions bind the seller's shop; public research may read other shops. Connection is not required for copy preparation.
+
+When the connected server exposes `open_makebox_workspace` and the client supports MCP Apps, you can open a read-only visual catalogue, inspect listings and photos, and bring a selected listing into the conversation. Optional buttons start a conversation about creating, improving or researching a listing; they do not themselves generate content or change Etsy. The server and host determine availability. Existing text tools remain the fallback.
 
 Try “change this listing's shipping profile,” “create an Etsy draft from this finished copy,” “show my latest orders and payment ledger,” or “research relevant keywords.” Claude uses the live tool schemas rather than a fixed list embedded in the plugin. If an existing conversation lacks newly added tools, refresh the connector or start a new conversation; discovery and caching depend on the client.
 
@@ -37,6 +39,7 @@ See the [MakeBox homepage](https://www.makebox.ai/), [plugin documentation](http
 - `agents/makebox-etsy-manager.md`: coordinates work in Cowork and Claude Code.
 - `skills/makebox-shop-manager/SKILL.md`: the coordinating role in ordinary Claude chat.
 - `skills/use-etsy-api/SKILL.md`: direct API discovery, authorization, transport and readback.
+- `skills/visual-etsy-workspace/SKILL.md`: safe visual catalogue access when available.
 - `skills/create-etsy-listing/SKILL.md`: complete listing drafts, options, policies and media.
 - `skills/optimize-etsy-listing/SKILL.md`: chat-authored improvements or explicitly requested MakeBox AI jobs.
 - `skills/manage-etsy-orders/SKILL.md`: current orders, transactions, payment records and authorized fulfillment.

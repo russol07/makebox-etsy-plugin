@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.7 — candidate
+
+- Add a visual workspace skill that uses the existing connector only when the server and host support MCP Apps.
+- Preserve all existing skills, connector settings, publisher metadata, and seller approval requirements.
+
 ## 0.3.4 — 2026-10-05
 
 - Add complete Claude directory homepage, documentation, support, repository, terms and discovery metadata.
