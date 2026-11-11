@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.9 — candidate
+
+- Exclude development scripts and tests from the directory package.
+- Use basic agent metadata and link workflow skills from the agent instructions.
+
 ## 0.3.8 — candidate
 
 - Remove the bundled listing icon for a fresh Claude Directory scan.

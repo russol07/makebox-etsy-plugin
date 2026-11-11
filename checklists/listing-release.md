@@ -12,5 +12,3 @@
 - Copy preview and exact intended action have seller authorization within scope; publication/fees not inferred from “draft.”
 - Accepted writes followed by authoritative reads; partial or uncertain outcomes separated.
 - Seller has a clear next step: paste/save draft, review, approve action, or continue shop work.
-
-The optional local `scripts/check-listing.py` checks structure/limits. It cannot verify material truth, legal rights, current Etsy status or SEO performance; perform the substantive review above.

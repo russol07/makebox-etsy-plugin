@@ -1,6 +1,6 @@
 # MakeBox for Etsy
 
-Version **0.3.8** provides an Etsy SEO strategist and eight guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
+Version **0.3.9** provides an Etsy SEO strategist and eight guided workflows. It is useful without an MCP connection: supply product facts, a photo, pasted listing or CSV, and receive complete copy-ready fields, a settings worksheet and clearly marked unresolved facts. The same knowledge supports connected execution through the seller's authorized MakeBox workspace.
 
 The manager combines SEO, product positioning, conversion copy, options, delivery and careful shop operations. It does not guess material, package size, search volume, delivery promises or ranking outcomes. Long descriptions are returned in full with their factual sections preserved. [Worked examples](references/worked-examples.md) and [fillable templates](templates/product-brief.md) demonstrate the result.
 
@@ -28,7 +28,7 @@ A direct `etsy_*` action uses Etsy IDs and does not require a MakeBox import fir
 
 The connector sends the selected tool request to MakeBox at `https://mcp.makebox.ai/mcp`, which calls Etsy with the seller's OAuth authorization. Direct operations may include listing content, order and buyer details, shipping information, payment records and shop policies. Display only the data needed for the seller's task. Optional personal Etsy email/address methods require additional Etsy consent; the ordinary connection does not gain these permissions automatically.
 
-The plugin contains no credentials or autonomous background worker. Optional Python scripts perform local structural checks and build reference files; they make no network calls, spend no credits and execute no Etsy action. No hooks run them automatically. Seller-owned files are uploaded only within authorization through `get_upload_link` or the Asset Library; direct multipart fields use `asset_id`. Never share tokens or arbitrary paths.
+The plugin contains no credentials or autonomous background worker. Seller-owned files are uploaded only within authorization through `get_upload_link` or the Asset Library; direct multipart fields use `asset_id`. Never share tokens or arbitrary paths.
 
 See the [MakeBox homepage](https://www.makebox.ai/), [plugin documentation](https://github.com/russol07/makebox-etsy-plugin#readme), [privacy policy](https://www.makebox.ai/privacy), [terms of service](https://www.makebox.ai/terms), and [support/contact page](https://www.makebox.ai/contact). Plugin use is governed by the bundled [proprietary license](LICENSE).
 
@@ -50,17 +50,6 @@ See the [MakeBox homepage](https://www.makebox.ai/), [plugin documentation](http
 
 The [plugin map](references/plugin-map.md) routes the agent/skills to facts, copy, keyword evidence, variants, personalization, delivery/packaging, media/digital, orders, API recipes and 105 schemas. Load task-specific guides progressively, not the whole catalogue into every copy request.
 
-Optional local checks (Python 3):
-
-```sh
-python3 scripts/check-listing.py examples/physical-desk-sign.json
-python3 scripts/check-listing.py examples/digital-weekly-planner.json
-python3 tests/test-listing-qa.py
-uv run --with PyYAML --with jsonschema python scripts/validate-bundle.py
-```
-
-`generated` QA expects 13 unique multi-word phrases for space-delimited languages. `--mode native` checks native tag-count/length structure without forcing the internal AI gate. These checks cannot verify truth, relevance, IP rights, Etsy state or SEO results. Use the [substantive release checklist](checklists/listing-release.md).
-
-Maintain API references with `python3 scripts/build-api-reference.py <official-operation-manifest.json> --date YYYY-MM-DD`; compare against an export of the actual runtime with `validate-bundle.py --runtime-schemas <export.json>`. Recipes contain illustrative IDs and must never be executed unchanged.
+Use the [listing release checklist](checklists/listing-release.md) to review product facts, listing structure and operational details. Recipes contain illustrative IDs and must never be executed unchanged.
 
 Claude chat uses the coordinating skill where agent files are not loaded; compatible Cowork/Code runtimes can load the manager agent. Codex packaging exposes the same role through its onboarding skill, without claiming an unsupported agent loader. Muse connector installation alone does not install these Markdown instructions; import them only through capabilities Muse actually provides or use them as project instructions. Remote tool changes come from MCP; knowledge changes require a plugin update. Prepared archives or an updated GitHub package do not mean a marketplace review is approved. See [CHANGELOG.md](CHANGELOG.md).
