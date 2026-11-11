@@ -6,7 +6,7 @@ import shutil
 import zipfile
 from pathlib import Path
 
-PARTS = ("README.md", "CHANGELOG.md", "LICENSE", "ОПИС-УКРАЇНСЬКОЮ.md", "assets", "agents",
+PARTS = ("README.md", "CHANGELOG.md", "LICENSE", "ОПИС-УКРАЇНСЬКОЮ.md", "agents",
          "agent-packs", "skills", "references", "templates", "checklists", "examples", "scripts", "tests")
 
 
@@ -18,6 +18,11 @@ def main():
     root = Path(__file__).resolve().parents[1]
     claude = json.loads((root / ".claude-plugin/plugin.json").read_text())
     codex = json.loads(args.codex_manifest.read_text())
+    codex_logo = args.codex_manifest.parent.parent / "assets" / "makebox-logo.png"
+    codex_interface = codex.get("interface", {})
+    if any(codex_interface.get(key) == "./assets/makebox-logo.png" for key in ("logo", "composerIcon")):
+        if not codex_logo.is_file():
+            p.error(f"Codex manifest references a missing logo: {codex_logo}")
     version = claude["version"]
     args.output.mkdir(parents=True, exist_ok=True)
     for runtime in ("claude", "codex"):
@@ -47,6 +52,9 @@ def main():
                 folder = ".claude-plugin"
             else:
                 folder = ".codex-plugin"
+                if codex_logo.is_file():
+                    (package / "assets").mkdir()
+                    shutil.copy2(codex_logo, package / "assets")
                 interface = metadata.setdefault("interface", {})
                 interface["shortDescription"] = "Create better Etsy listings"
                 interface["longDescription"] = (

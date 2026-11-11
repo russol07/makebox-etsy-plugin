@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.8 — candidate
+
+- Remove the bundled listing icon for a fresh Claude Directory scan.
+
 ## 0.3.7 — candidate
 
 - Add a visual workspace skill that uses the existing connector only when the server and host support MCP Apps.
