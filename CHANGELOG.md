@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.10 — candidate
+
+- Simplify the plugin manifest and listing quality guide.
+
 ## 0.3.9 — candidate
 
 - Exclude development scripts and tests from the directory package.
