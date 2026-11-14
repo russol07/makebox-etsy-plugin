@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.11 — candidate
+
+- Explain how to fix a refused call: tag refusals now name each failing phrase; the model rewrites its own keywords.
+- Photo alt text for listings on Etsy: `set_photo_alt_text` with `listing_id` + `listing_image_id` from `list_photos`.
+- Variations: up to three properties; inventory writes stay possible on three-property listings.
+
 ## 0.3.10 — candidate
 
 - Simplify the plugin manifest and listing quality guide.

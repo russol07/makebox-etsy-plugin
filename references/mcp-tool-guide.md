@@ -18,3 +18,16 @@ The remote server in `.mcp.json` supplies the current tool catalogue. Start with
 Direct `etsy_*` transport does not spend MakeBox AI allowances or rewrite the payload. Plan gates and Etsy fees remain. MakeBox-specific research can have daily quotas. `optimize_listing` uses one listing action for all three text fields or one third for a single field; `start_bulk_seo` charges the quoted allowance and does not publish by itself. Never invoke either just to send already-prepared content.
 
 Separate chat suggestions, MakeBox-only staging, an Etsy-accepted request, an Etsy draft and a verified published listing. If an outcome is uncertain, read before retrying. Report the actual source, target ID and any unresolved step.
+
+## Fixing a refused call
+
+A refusal names the argument (`field`) and, for tags, each failing phrase and why: one word, over 20 characters, duplicate, or not exactly 13. Rewrite only those phrases yourself from the confirmed product facts — the connector validates, it does not choose keywords for you — and send the call again. Translated tags follow the same rule per language. Never resend an identical refused call.
+
+## Photo alt text
+
+`list_photos` returns MakeBox `photo_id` for photos still in MakeBox (source `makebox`) and Etsy's `listing_image_id` for a listing on Etsy (source `etsy-live`). For the latter call `set_photo_alt_text` with `listing_id` and `listing_image_id`. Etsy has no alt-text edit endpoint: the photo is detached and re-attached in place with the new text, then read back.
+
+## Variations
+
+Etsy listings can have up to three variation properties. Every inventory write made through MakeBox is sent as third-variation aware, so a listing that already has three properties can still be updated or reduced.
+
