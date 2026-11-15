@@ -9,7 +9,7 @@
     "source": "github",
     "id": "1398789751"
   },
-  "version": "0.3.11",
+  "version": "1.0.1",
   "remotes": [
     {
       "type": "streamable-http",
