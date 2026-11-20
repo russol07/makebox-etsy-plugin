@@ -1,7 +1,7 @@
 {
   "name": "makebox-etsy",
   "displayName": "MakeBox for Etsy",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "Guidance for Etsy listings, keyword research, and shop management.",
   "author": { "name": "MakeBox AI" },
   "license": "LicenseRef-MakeBox-Proprietary",

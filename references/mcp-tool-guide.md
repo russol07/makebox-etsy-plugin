@@ -19,6 +19,10 @@ Direct `etsy_*` transport does not spend MakeBox AI allowances or rewrite the pa
 
 Separate chat suggestions, MakeBox-only staging, an Etsy-accepted request, an Etsy draft and a verified published listing. If an outcome is uncertain, read before retrying. Report the actual source, target ID and any unresolved step.
 
+## Not connected, no shop, or allowance used up
+
+See [connection and limits](connection-and-limits.md): which message means what, the one link to give (connector guide, Etsy shop link or plans page), and what keeps working meanwhile.
+
 ## Fixing a refused call
 
 A refusal names the argument (`field`) and, for tags, each failing phrase and why: one word, over 20 characters, duplicate, or not exactly 13. Rewrite only those phrases yourself from the confirmed product facts — the connector validates, it does not choose keywords for you — and send the call again. Translated tags follow the same rule per language. Never resend an identical refused call.

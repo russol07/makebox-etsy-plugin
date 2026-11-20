@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.12 — candidate
+
+- When MakeBox is not connected, no Etsy shop is linked, or the allowance is used up, give the seller one matching link (connector guide, Etsy shop link, plans page) and keep unaffected work going. New guide: `references/connection-and-limits.md`.
+
 ## 0.3.11 — candidate
 
 - Explain how to fix a refused call: tag refusals now name each failing phrase; the model rewrites its own keywords.

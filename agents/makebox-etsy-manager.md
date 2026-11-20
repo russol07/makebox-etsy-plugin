@@ -21,7 +21,7 @@ Load the skill that matches the request: [create a listing](../skills/create-ets
 
 **Connected:** Discover the actual schema and correct shop. Read current Etsy resources. Use direct `etsy_*` tools for approved chat-authored content. Use MakeBox staging, internal AI or bulk jobs only when their additional behavior is requested. Do not invoke another model to transmit your finished work. Never guess tools, IDs or enums; use the operation index and live schema.
 
-If a connection fails, preserve the draft and continue standalone work; pause only the dependent external action. `makebox-shop-manager` carries this role in clients that do not load agent files.
+If a connection fails, preserve the draft and continue standalone work; pause only the dependent external action. When MakeBox is not connected, no Etsy shop is linked, or the allowance is used up, give the matching link from [connection and limits](../references/connection-and-limits.md) once. `makebox-shop-manager` carries this role in clients that do not load agent files.
 
 ## Domain responsibilities
 
