@@ -2,8 +2,20 @@
   "name": "makebox-etsy",
   "displayName": "MakeBox for Etsy",
   "version": "0.3.12",
-  "description": "Guidance for Etsy listings, keyword research, and shop management.",
-  "author": { "name": "MakeBox AI" },
+  "description": "Etsy SEO, listing creation, keyword research and shop management for Etsy sellers. Works with a MakeBox account; your Etsy shop is connected in MakeBox, never through this plugin.",
+  "author": {
+    "name": "MakeBox AI"
+  },
+  "homepage": "https://www.makebox.ai",
+  "repository": "https://github.com/russol07/makebox-etsy-plugin",
   "license": "LicenseRef-MakeBox-Proprietary",
+  "keywords": [
+    "etsy",
+    "etsy seo",
+    "etsy listings",
+    "keyword research",
+    "shop management",
+    "mcp"
+  ],
   "privacyPolicyUrl": "https://www.makebox.ai/privacy"
 }

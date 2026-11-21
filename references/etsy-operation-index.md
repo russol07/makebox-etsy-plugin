@@ -2,7 +2,7 @@
 
 Verified 2026-10-04: 105 direct tools from MakeBox's Etsy manifest.
 Use this index to find the exact named tool, then inspect its live schema. This is not permission to call a tool.
-Private shop/user identity is server-bound; public reads may still expose those IDs. The full input snapshot is in [schemas](etsy-tool-schemas.json).
+Private shop/user identity is server-bound; public reads may still expose those IDs. Exact input schemas are read from the live MakeBox server before each call.
 An empty body is still required when shown by the input schema. `token_scopes` handles the token server-side; never supply it.
 
 | Tool | Operation / method | Required top-level inputs | Required body fields | Scopes |

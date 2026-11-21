@@ -2,6 +2,8 @@
 
 ## 0.3.12 — candidate
 
+- Directory package trimmed for the policy review: marketplace-only files (`llms-install.md`, `server.json`) moved to branch `marketplace/mcp-registry`, the 123 KB offline schema snapshot removed (live schemas come from the server), logo moved to `.claude-plugin/icon.png`, manifest gained `keywords`, `homepage`, `repository` and a concrete description. No scripts, hooks, `env` or `headers` in `.mcp.json`.
+
 - When MakeBox is not connected, no Etsy shop is linked, or the allowance is used up, give the seller one matching link (connector guide, Etsy shop link, plans page) and keep unaffected work going. New guide: `references/connection-and-limits.md`.
 
 ## 0.3.11 — candidate

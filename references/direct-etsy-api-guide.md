@@ -2,7 +2,7 @@
 
 MakeBox is the authenticated intermediary. The chat reasons about the seller's request; the server sends the approved values to Etsy and returns the current Etsy response. The live MCP catalogue and each tool's input schema are authoritative. The October 1, 2026 server snapshot provides 105 official Etsy operations as distinct `etsy_*` tools.
 
-For exact operation names/inputs use the [105-operation index](etsy-operation-index.md), [schema snapshot](etsy-tool-schemas.json) and [validated recipes](etsy-operation-recipes.md), checked against the local server implementation on 2026-10-04. They are references, not authority to execute illustrative IDs. Without MCP the plugin still provides drafting, audits, evidence analysis and manual field/settings worksheets.
+For exact operation names/inputs use the [105-operation index](etsy-operation-index.md), live tool schemas from the MakeBox server and [validated recipes](etsy-operation-recipes.md), checked against the local server implementation on 2026-10-04. They are references, not authority to execute illustrative IDs. Without MCP the plugin still provides drafting, audits, evidence analysis and manual field/settings worksheets.
 
 ## Choose the right path
 

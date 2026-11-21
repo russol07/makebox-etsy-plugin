@@ -27,7 +27,7 @@ The seventh skill, `makebox-shop-manager`, provides the coordinating role in ord
 - `media-digital.md` → gallery/alt text, owned uploads and actual download contents/access.
 - `orders-workflow.md` → live versus exported orders, fulfillment notifications and financial-read boundaries.
 - `worked-examples.md` → physical, digital, ambiguous facts, long description, profile update and uncertain writes.
-- `etsy-operation-recipes.md`, `etsy-operation-index.md`, `etsy-tool-schemas.json` → verified shapes and 105-operation snapshot.
+- `etsy-operation-recipes.md`, `etsy-operation-index.md` → verified shapes and the 105-operation index. Exact input schemas come from the live MakeBox server (its tool list), not from a bundled copy.
 - `templates/` → product brief, copy/settings handoff, keyword evidence and packaging worksheet.
 - `checklists/listing-release.md` → substantive release review.
 - `scripts/` → optional offline QA, reference generation and bundle validation; no automatic execution.
